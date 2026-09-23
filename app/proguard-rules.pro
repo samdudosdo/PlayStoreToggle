@@ -1,1 +1,1 @@
-# Biarkan default.
+# Default. Tidak ada aturan khusus.

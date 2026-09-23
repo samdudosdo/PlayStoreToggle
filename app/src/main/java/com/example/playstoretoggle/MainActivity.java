@@ -15,25 +15,25 @@ import java.io.InputStreamReader;
 
 public class MainActivity extends AppCompatActivity {
 
-    // Package Play Store + dependency inti Google.
-    // Beberapa mungkin tidak ada di device tertentu -> akan dilaporkan sebagai error ringan.
+    // Play Store + dependency Google.
+    // Catatan: com.google.android.packageinstaller TIDAK dimasukkan
+    // agar Anda masih bisa install APK setelah disable.
     private static final String[] PACKAGES = {
             "com.android.vending",                          // Play Store
             "com.google.android.gms",                       // Google Play Services
             "com.google.android.gsf",                       // Google Services Framework
             "com.google.android.gsf.login",                 // GSF Login (device lama)
-            "com.google.android.backuptransport",           // Google Backup Transport
+            "com.google.android.backuptransport",           // Google Backup
             "com.google.android.syncadapters.contacts",     // Google Contacts Sync
             "com.google.android.syncadapters.calendar",     // Google Calendar Sync
             "com.google.android.onetimeinitializer",        // One Time Initializer
             "com.google.android.configupdater",             // Config Updater
             "com.google.android.partnersetup",              // Partner Setup
             "com.google.android.setupwizard",               // Setup Wizard
-            "com.google.android.packageinstaller",          // Package Installer (hati-hati)
             "com.google.android.apps.restore",              // Restore
             "com.google.android.ext.services",              // Ext Services
             "com.google.android.ext.shared",                // Ext Shared
-            "com.google.android.gms.policy_sidecar_aps"     // GMS sidecar
+            "com.google.android.gms.policy_sidecar_aps"     // GMS Sidecar
     };
 
     private TextView logView;
@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
                 "am force-stop com.android.vending",
                 "am force-stop com.google.android.gsf",
                 "am force-stop com.google.android.gms.ui",
-                "am force-stop com.android.vending:background"
+                "am force-stop com.google.android.gms.unstable"
         };
         StringBuilder sb = new StringBuilder();
         sb.append("=== FORCE STOP ===\n");
